@@ -30,12 +30,49 @@ export function SiteNav() {
   return (
     <header className="sticky top-0 z-50 max-w-full overflow-x-hidden border-b border-stone-200/80 border-t-[3px] border-t-brand-blue backdrop-blur-sm">
       <div className="relative z-50 bg-white/95 pt-[env(safe-area-inset-top)]">
+        {/* Mobile: full-screen overlay menu so links are never cut off or blocked */}
         {menuOpen && (
           <div
-            className="fixed inset-0 z-40 bg-stone-900/40 md:hidden"
-            aria-hidden
-            onClick={() => setMenuOpen(false)}
-          />
+            className="fixed inset-0 z-[100] flex flex-col bg-white pt-[env(safe-area-inset-top)] md:hidden"
+            id="mobile-nav"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Menu"
+          >
+            <div className="flex flex-none items-center justify-between border-b border-stone-200 px-4 py-3">
+              <span className="text-sm font-semibold text-stone-700">Menu</span>
+              <button
+                type="button"
+                className="flex h-11 w-11 items-center justify-center rounded-md text-stone-600 hover:bg-stone-100"
+                aria-label="Close menu"
+                onClick={() => setMenuOpen(false)}
+              >
+                <X className="h-6 w-6" strokeWidth={1.75} />
+              </button>
+            </div>
+            <nav
+              className="flex flex-1 flex-col gap-1 overflow-auto px-4 py-6"
+              aria-label="Mobile primary"
+            >
+              {links.map(({ href, label }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className="rounded-lg px-4 py-3.5 text-base font-medium text-stone-800 active:bg-stone-100"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              ))}
+              <Link
+                href="/#waitlist"
+                className="btn-primary mt-4 min-h-12 w-full justify-center py-3.5 text-xs font-bold uppercase tracking-wide"
+                onClick={() => setMenuOpen(false)}
+              >
+                Join the waitlist
+              </Link>
+            </nav>
+          </div>
         )}
         <div className="relative z-50 mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6">
           <Link
@@ -48,7 +85,7 @@ export function SiteNav() {
               alt="Spoonwell Living"
               width={648}
               height={756}
-              className="h-[135px] w-auto object-contain sm:h-[162px]"
+              className="h-14 w-auto object-contain sm:h-[162px]"
               unoptimized
               priority
             />
@@ -91,39 +128,7 @@ export function SiteNav() {
           </div>
         </div>
 
-        {menuOpen && (
-          <div
-            id="mobile-nav"
-            className="absolute inset-x-0 top-full z-50 border-b border-stone-200 bg-white px-4 py-4 shadow-lg md:hidden"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Menu"
-          >
-            <nav
-              className="mx-auto flex max-w-6xl flex-col gap-1"
-              aria-label="Mobile primary"
-            >
-              {links.map(({ href, label }) => (
-                <Link
-                  key={href}
-                  href={href}
-                  className="rounded-lg px-4 py-3.5 text-base font-medium text-stone-800 active:bg-stone-100"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {label}
-                </Link>
-              ))}
-              <Link
-                href="/#waitlist"
-                className="btn-primary mt-3 min-h-12 w-full justify-center py-3.5 text-xs font-bold uppercase tracking-wide"
-                onClick={() => setMenuOpen(false)}
-              >
-                Join the waitlist
-              </Link>
-            </nav>
-          </div>
-        )}
-      </div>
+        </div>
 
       <div className="section-amber-announcement px-[max(1rem,env(safe-area-inset-left))] pe-[max(1rem,env(safe-area-inset-right))] text-[13px] leading-snug">
         <span className="sm:hidden">

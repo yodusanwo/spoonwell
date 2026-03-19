@@ -242,7 +242,7 @@ body {
   }
 
   .form-tag-forest:has(:checked) {
-    @apply border-brand-forest bg-brand-forest/25 text-brand-forest;
+    @apply border-brand-forest bg-brand-forest text-white;
   }
 
   .form-tag-forest:has(:focus-visible) {
