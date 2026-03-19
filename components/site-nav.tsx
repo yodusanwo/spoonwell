@@ -120,9 +120,9 @@ export function SiteNav() {
               onClick={() => setMenuOpen((o) => !o)}
             >
               {menuOpen ? (
-                <X className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                <X className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
               ) : (
-                <Menu className="h-6 w-6" strokeWidth={1.75} aria-hidden />
+                <Menu className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
               )}
             </button>
           </div>

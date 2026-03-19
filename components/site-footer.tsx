@@ -86,7 +86,7 @@ export function SiteFooter() {
       <div className="footer-sub">
         <div className="mx-auto flex max-w-6xl flex-col flex-wrap items-center justify-center gap-2 px-4 sm:flex-row sm:gap-6">
           <span>© {new Date().getFullYear()} Spoonwell Living. All rights reserved.</span>
-          <span className="hidden sm:inline text-white/40" aria-hidden>
+          <span className="hidden sm:inline text-white/40" aria-hidden="true">
             |
           </span>
           <div className="flex flex-wrap justify-center gap-4">

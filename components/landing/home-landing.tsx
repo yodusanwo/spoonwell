@@ -76,7 +76,7 @@ export function HomeLanding({ waitlist }: Props) {
           <div className="stats-trust-outer">
             <div className="stats-trust-grid min-w-0">
               <div className="stats-trust-card">
-                <div className="stats-trust-number">8</div>
+                <div className="stats-trust-number">6</div>
                 <p className="stats-trust-label">Residents maximum</p>
               </div>
               <div className="stats-trust-card">
@@ -303,7 +303,7 @@ export function HomeLanding({ waitlist }: Props) {
               <ul className="space-y-4 text-stone-700">
                 <li className="flex gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDF4E8] text-brand-forest">
-                    <Phone className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                    <Phone className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <div className="min-w-0">
                     <span className="font-semibold text-brand-forest">Phone</span>
@@ -315,7 +315,7 @@ export function HomeLanding({ waitlist }: Props) {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDF4E8] text-brand-forest">
-                    <Mail className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                    <Mail className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <div className="min-w-0">
                     <span className="font-semibold text-brand-forest">Email</span>
@@ -330,7 +330,7 @@ export function HomeLanding({ waitlist }: Props) {
                 </li>
                 <li className="flex gap-3">
                   <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EDF4E8] text-brand-forest">
-                    <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                    <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                   </span>
                   <div className="min-w-0">
                     <span className="font-semibold text-brand-forest">Address</span>
@@ -346,7 +346,7 @@ export function HomeLanding({ waitlist }: Props) {
                   rel="noopener noreferrer"
                   className="link-brand inline-flex items-center gap-2 text-sm"
                 >
-                  <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden />
+                  <MapPin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
                   Open in Google Maps
                 </a>
               </p>
@@ -368,7 +368,7 @@ export function HomeLanding({ waitlist }: Props) {
                 />
                 <span
                   className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-stone-900/55 to-transparent px-3 pb-2 pt-10 text-center text-xs font-medium text-white"
-                  aria-hidden
+                  aria-hidden="true"
                 >
                   Tap for directions
                 </span>
