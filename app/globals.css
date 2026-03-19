@@ -157,7 +157,8 @@ body {
   }
 
   .nav-link {
-    @apply rounded-md px-2 py-1 text-sm text-stone-600 transition-colors hover:bg-stone-200/60 hover:text-brand-blue;
+    @apply rounded-md px-2 py-1 text-stone-600 transition-colors hover:bg-stone-200/60 hover:text-brand-blue;
+    font-size: 17px; /* 3px larger than text-sm (14px) */
   }
 
   .nav-link-active {
