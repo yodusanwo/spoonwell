@@ -1,26 +1,366 @@
 @import "tailwindcss";
 
+/**
+ * Spoonwell Living — brand palette
+ *
+ * Blue #3A8DC5 — primary CTA buttons ("Join Waitlist", "Submit"), stat
+ *   numbers, links, nav active states
+ * Forest Green #4A7A2F — secondary/outline buttons, "Veteran-Owned" label,
+ *   card accent headings, footer background
+ * Warm Amber #C98B2A — eyebrow text labels, pull quote border, notice box
+ *   border + heading, annotation accents
+ * Cream #F7F6F0 — page background, form field backgrounds
+ *
+ * Hero: diagonal 135° blend — light blue #EBF4FB (top-left, pale primary)
+ *   → light green #EDF4E8 (bottom-right, pale forest); echoes logo script + wreath.
+ *
+ * Footer: full forest-green background; logo sits on a white pill so it
+ * mirrors the mark’s contrast and reads as intentional.
+ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-blue: #3a8dc5;
+  --brand-forest: #4a7a2f;
+  --brand-amber: #c98b2a;
+  --brand-cream: #f7f6f0;
+  --brand-forest-dark: #355423;
+
+  --background: var(--brand-cream);
+  --foreground: #1c1917;
+
+  /* Hero — pale tints of primary blue + forest green */
+  --hero-blue-tint: #ebf4fb;
+  --hero-green-tint: #edf4e8;
+  --brand-blue-hover: #2d6f9e;
+  --pull-quote-bg: #fbf3e3;
+  --pull-quote-text: #854f0b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-brand-blue: #3a8dc5;
+  --color-brand-forest: #4a7a2f;
+  --color-brand-amber: #c98b2a;
+  --color-brand-cream: #f7f6f0;
+  --color-brand-forest-dark: #355423;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+html {
+  /* Sticky header + amber bar — keeps #anchors from hiding under chrome on mobile */
+  scroll-padding-top: 6.5rem;
+  /* Prevent horizontal scroll from any stray overflow (mobile) */
+  overflow-x: hidden;
+}
+
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 5.5rem;
   }
 }
 
 body {
-  background: var(--background);
+  background: var(--brand-cream);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+/* Stat callouts (e.g. trust bar numbers) — use with text-4xl font-bold etc. */
+.stat-number {
+  color: var(--brand-blue);
+}
+
+@layer components {
+  /* Cursive accent: Dancing Script, 15px minimum. Only for hero tagline, pull quote, eyebrows, footer tagline. */
+  .font-cursive {
+    font-family: var(--font-dancing-script), cursive;
+    font-size: max(15px, 1em);
+  }
+
+  .eyebrow {
+    @apply font-semibold uppercase tracking-wider text-brand-amber;
+    font-family: var(--font-dancing-script), cursive;
+    font-size: max(15px, 1rem);
+  }
+
+  .card-accent-heading {
+    @apply font-semibold text-brand-forest;
+  }
+
+  .card-heading-blue {
+    @apply font-semibold text-brand-blue;
+  }
+
+  .card-heading-forest {
+    @apply font-semibold text-brand-forest;
+  }
+
+  .card-heading-amber {
+    @apply font-semibold text-brand-amber;
+  }
+
+  .label-veteran-owned {
+    @apply inline-block rounded-full border border-brand-forest px-3 py-1 text-xs font-bold uppercase tracking-wide text-brand-forest;
+    background-color: #edf4e8;
+  }
+
+  .notice-box {
+    @apply rounded-md border-2 border-brand-amber bg-white/90 p-4;
+  }
+
+  .notice-box-heading {
+    @apply text-sm font-semibold text-brand-amber;
+  }
+
+  .pull-quote {
+    border-left: 4px solid var(--brand-amber);
+    background-color: var(--pull-quote-bg);
+    color: var(--pull-quote-text);
+    padding: 12px 16px;
+    border-radius: 0 6px 6px 0;
+    font-family: var(--font-dancing-script), cursive;
+    font-size: max(15px, 1rem);
+  }
+
+  .pull-quote p,
+  .pull-quote .pull-quote-text {
+    font-family: inherit;
+    font-size: 29px !important;
+  }
+
+  .annotation-accent {
+    @apply border-l-4 border-brand-amber bg-brand-cream pl-3 py-2 text-sm text-stone-600;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm text-white shadow-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-blue;
+    background-color: var(--brand-blue);
+    font-weight: 700;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--brand-blue-hover);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border-2 border-brand-forest bg-transparent px-5 py-2.5 text-sm font-semibold text-brand-forest transition-colors hover:bg-brand-forest/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-forest;
+  }
+
+  .field-cream {
+    @apply w-full rounded-md border border-stone-300 bg-brand-cream px-3 py-2 text-sm text-stone-900 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/35;
+  }
+
+  .link-brand {
+    @apply font-medium text-brand-blue underline-offset-2 transition-colors hover:text-brand-blue/90 hover:underline;
+  }
+
+  .nav-link {
+    @apply rounded-md px-2 py-1 text-sm text-stone-600 transition-colors hover:bg-stone-200/60 hover:text-brand-blue;
+  }
+
+  .nav-link-active {
+    @apply font-semibold text-brand-blue;
+  }
+
+  .footer-surface {
+    @apply bg-brand-forest text-white;
+  }
+
+  .footer-logo-pill {
+    @apply inline-flex rounded-full bg-white px-5 py-2.5 text-sm font-semibold tracking-wide text-brand-forest shadow-md;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-dancing-script), cursive;
+    font-size: max(15px, 1rem);
+  }
+
+  .header-logo-pill {
+    @apply inline-flex rounded-full border border-stone-200/90 bg-white px-4 py-2 text-sm font-semibold tracking-wide text-brand-forest shadow-sm;
+  }
+
+  /* Hero — soft diagonal: pale blue (top-left) → pale green (bottom-right), 135° */
+  .hero-section-gradient {
+    background: linear-gradient(
+      135deg,
+      var(--hero-blue-tint) 0%,
+      var(--hero-green-tint) 100%
+    );
+  }
+
+  /* Repeating announcement / divider strips between sections */
+  .section-amber-announcement {
+    @apply w-full max-w-full px-4 py-2.5 text-center leading-snug break-words;
+    background-color: #5c8f3a;
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .heading-display {
+    font-family: var(--font-source-serif), ui-serif, Georgia, serif;
+    @apply font-semibold tracking-tight text-stone-900;
+  }
+
+  /* Same cursive as hero — for section headings except the last (contact) */
+  h1.heading-cursive,
+  h2.heading-cursive {
+    font-family: "Dancing Script", var(--font-dancing-script), cursive !important;
+    font-weight: 600;
+  }
+
+  .field-white {
+    @apply max-w-full min-w-0 w-full rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/35;
+  }
+
+  .field-textarea {
+    @apply min-h-[120px] w-full max-w-full min-w-0 resize-y rounded-md border border-stone-300 bg-white px-3 py-3 text-sm leading-relaxed text-stone-900 outline-none focus:border-brand-blue focus:ring-2 focus:ring-brand-blue/35;
+  }
+
+  /* Radio pill chips (relationship, timing, etc.) */
+  .pill-radio {
+    @apply cursor-pointer select-none rounded-full border-2 border-stone-300 bg-white px-4 py-2 text-center text-sm text-stone-700 transition-colors;
+  }
+
+  .pill-radio:has(:checked) {
+    @apply border-brand-blue bg-brand-blue/10 font-medium text-brand-blue;
+  }
+
+  .pill-radio:has(:focus-visible) {
+    @apply outline outline-2 outline-offset-2 outline-brand-blue;
+  }
+
+  /* Waitlist form: all-caps bold labels */
+  .form-label {
+    @apply mb-1.5 block text-xs font-bold uppercase tracking-wide text-stone-800;
+  }
+
+  /* Quick-select tags: light green bg, dark green text/border — same radius as hero buttons */
+  .form-tag-forest {
+    @apply cursor-pointer select-none rounded-md border-2 border-brand-forest bg-brand-forest/15 px-3 py-2 text-center text-sm font-medium text-brand-forest transition-colors;
+  }
+
+  .form-tag-forest:has(:checked) {
+    @apply border-brand-forest bg-brand-forest/25 text-brand-forest;
+  }
+
+  .form-tag-forest:has(:focus-visible) {
+    @apply outline outline-2 outline-offset-2 outline-brand-forest;
+  }
+
+  .feature-card-accent-blue {
+    @apply h-1 w-12 rounded-full bg-brand-blue;
+  }
+
+  .feature-card-accent-forest {
+    @apply h-1 w-12 rounded-full bg-brand-forest;
+  }
+
+  .feature-card-accent-amber {
+    @apply h-1 w-12 rounded-full bg-brand-amber;
+  }
+
+  .gallery-placeholder {
+    @apply flex aspect-[4/3] max-w-full min-w-0 items-center justify-center rounded-md border border-stone-300 bg-stone-200/80 text-center text-xs font-medium text-stone-500;
+  }
+
+  .footer-sub {
+    @apply border-t border-white/10 bg-brand-forest-dark py-4 text-center text-xs text-white/75;
+  }
+
+  .map-placeholder {
+    @apply flex min-h-[280px] w-full max-w-full min-w-0 items-center justify-center rounded-lg border border-stone-300 bg-stone-200/60 text-sm text-stone-500;
+  }
+
+  .hero-text-overlay {
+    background-color: rgba(58, 141, 197, 0.75);
+    @apply rounded-lg px-6 py-6 text-white;
+  }
+
+  .hero-text-overlay .eyebrow {
+    @apply text-white/90;
+  }
+
+  .hero-text-overlay .heading-display,
+  .hero-text-overlay h1 {
+    @apply text-white;
+  }
+
+  .hero-text-overlay h1 {
+    font-family: "Dancing Script", var(--font-dancing-script), cursive;
+    font-weight: 600;
+  }
+
+  .hero-text-overlay p {
+    @apply text-white/95;
+  }
+
+  .section-the-farm-bg {
+    background-color: #edf4e8;
+  }
+
+  /* Stats / trust bar — outer panel + card grid */
+  .stats-trust-outer {
+    background-color: #edf4e8;
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  .stats-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  @media (max-width: 639px) {
+    .stats-trust-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .stats-trust-card {
+    background-color: #5c8f3a;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .stats-trust-number {
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.2;
+  }
+
+  .stats-trust-badge {
+    font-size: 17px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  .stats-trust-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.88);
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .stats-trust-card .stats-trust-badge {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .stats-trust-card .stats-trust-badge + .stats-trust-label {
+    margin-top: 0.25rem;
+  }
+
+  .waitlist-section-bg {
+    background-color: #ebf4fb;
+  }
+
+  .waitlist-section-bg .field-white:focus {
+    border-color: var(--brand-blue);
+    @apply ring-2 ring-brand-blue/35;
+  }
 }

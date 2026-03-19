@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spoonwell Living — Landing Page Wireframe v1.0</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,sans-serif;background:#f5f5f3;color:#222;padding:2rem}
+  .wf-page{max-width:960px;margin:0 auto}
+  .wf-label{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#888;margin-bottom:6px}
+  .wf-section{background:#fff;border:1.5px dashed #bbb;border-radius:6px;margin-bottom:20px;padding:20px;position:relative}
+  .wf-section-tag{position:absolute;top:-12px;left:14px;background:#444;color:#fff;font-size:10px;font-weight:700;letter-spacing:0.07em;text-transform:uppercase;padding:2px 10px;border-radius:3px}
+  .wf-img{background:#e0ddd6;border:1.5px solid #bbb;border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;text-align:center}
+  .wf-img span{font-size:11px;color:#999;z-index:1;background:rgba(224,221,214,0.9);padding:4px 8px;border-radius:2px;line-height:1.5}
+  .wf-field{border:1.5px solid #bbb;border-radius:4px;height:36px;background:#f9f9f8;width:100%;display:flex;align-items:center;padding:0 10px;font-size:12px;color:#aaa}
+  .wf-textarea{border:1.5px solid #bbb;border-radius:4px;background:#f9f9f8;width:100%;padding:10px;font-size:12px;color:#aaa;height:70px;display:flex;align-items:flex-start}
+  .wf-btn{background:#444;color:#fff;border:none;border-radius:4px;padding:10px 22px;font-size:12px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;display:inline-block}
+  .wf-btn.outline{background:#fff;color:#444;border:1.5px solid #888}
+  .wf-nav-item{padding:7px 14px;border:1.5px solid #ccc;border-radius:4px;font-size:11px;color:#555;background:#f5f5f3;display:inline-block}
+  .wf-logo{border:1.5px solid #bbb;border-radius:4px;background:#e0ddd6;padding:8px 20px;font-size:13px;font-weight:700;color:#666;letter-spacing:0.06em;display:inline-block}
+  .wf-divider{border:none;border-top:1.5px dashed #ddd;margin:16px 0}
+  .wf-annotation{font-size:10px;color:#888;font-style:italic;padding:6px 10px;background:#fffbe6;border-left:3px solid #e6c700;border-radius:2px;margin-top:10px;line-height:1.6}
+  .wf-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .wf-grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .wf-card{border:1.5px solid #ccc;border-radius:6px;padding:14px;background:#f9f9f8}
+  .row{display:flex;align-items:center;gap:12px}
+  .row.between{justify-content:space-between}
+  h4{font-size:14px;font-weight:600;color:#333;margin-bottom:8px}
+  p.wf-body{font-size:12px;color:#888;line-height:1.6;margin-bottom:8px}
+  .chip{display:inline-block;background:#e0ddd6;border-radius:3px;font-size:10px;color:#666;padding:3px 8px;margin:2px}
+  .badge{display:inline-block;background:#f5f5f3;border:1px solid #bbb;border-radius:3px;font-size:9px;color:#888;padding:2px 6px;text-transform:uppercase;letter-spacing:0.05em}
+  .wf-select{border:1.5px solid #bbb;border-radius:4px;height:36px;background:#f9f9f8;width:100%;display:flex;align-items:center;padding:0 10px;font-size:12px;color:#aaa;justify-content:space-between}
+  .wf-select::after{content:'▾';color:#aaa;font-size:11px}
+  .page-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;padding-bottom:16px;border-bottom:2px solid #ddd}
+  @media print{body{padding:0.5rem}.wf-page{max-width:100%}}
+</style>
+</head>
+<body>
+<div class="wf-page">
+
+  <div class="page-header">
+    <div>
+      <div style="font-size:20px;font-weight:700;color:#333">Spoonwell Living — Landing Page Wireframe</div>
+      <div style="font-size:11px;color:#999;margin-top:3px">UX / Layout Document · www.spoonwellliving.com · Version 1.0</div>
+    </div>
+    <div style="display:flex;gap:6px">
+      <span class="badge">Desktop</span>
+      <span class="badge">v1.0</span>
+      <span class="badge">Wireframe</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="wf-section">
+    <div class="wf-section-tag">01 — Navigation Bar</div>
+    <div class="row between">
+      <div class="wf-logo">SPOONWELL LIVING</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="wf-nav-item">Our Story</div>
+        <div class="wf-nav-item">The Home</div>
+        <div class="wf-nav-item">Care Services</div>
+        <div class="wf-nav-item">Contact</div>
+        <div class="wf-btn" style="font-size:11px;padding:7px 16px">Join Waitlist</div>
+      </div>
+    </div>
+    <div class="wf-annotation">Sticky top nav. CTA button scrolls to waitlist form section. Logo links back to top. Mobile: hamburger menu collapses all nav items.</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="wf-section">
+    <div class="wf-section-tag">02 — Hero Section</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center">
+      <div style="padding:8px 0">
+        <div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px">Location Tag: Near Fort Benning, Georgia</div>
+        <div style="background:#d0cdc6;height:24px;border-radius:3px;margin-bottom:10px;width:90%"></div>
+        <div style="background:#d0cdc6;height:24px;border-radius:3px;margin-bottom:10px;width:75%"></div>
+        <div style="background:#d0cdc6;height:24px;border-radius:3px;margin-bottom:20px;width:60%"></div>
+        <p class="wf-body">Hero subheadline: Veterans caring for veterans. A small, intimate home built for those who served — by people who served too.</p>
+        <div style="display:flex;gap:12px;margin-top:14px">
+          <div class="wf-btn">Join the Waitlist</div>
+          <div class="wf-btn outline">Our Story</div>
+        </div>
+        <div class="wf-annotation" style="margin-top:14px">Primary CTA anchors to waitlist form (#waitlist). Secondary CTA scrolls to Our Story section. Headline copy TBD — suggest focusing on belonging + service.</div>
+      </div>
+      <div>
+        <div class="wf-img" style="height:260px">
+          <span>Hero Image Placeholder<br>(Photos to be provided)</span>
+        </div>
+        <div class="wf-annotation">Suggested: exterior/garden shot, warm and welcoming tone. Authentic photography — no stock imagery.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST BAR -->
+  <div class="wf-section">
+    <div class="wf-section-tag">03 — Trust / Stats Bar</div>
+    <div class="wf-grid3">
+      <div class="wf-card" style="text-align:center">
+        <div style="font-size:24px;font-weight:700;color:#555;margin-bottom:4px">6</div>
+        <div style="font-size:11px;color:#888">Maximum Residents</div>
+      </div>
+      <div class="wf-card" style="text-align:center">
+        <div style="font-size:24px;font-weight:700;color:#555;margin-bottom:4px">&lt; 10 min</div>
+        <div style="font-size:11px;color:#888">From Fort Benning, GA</div>
+      </div>
+      <div class="wf-card" style="text-align:center">
+        <div style="font-size:18px;font-weight:700;color:#555;margin-bottom:4px">Veteran-Owned</div>
+        <div style="font-size:11px;color:#888">Husband &amp; Wife · U.S. Army</div>
+      </div>
+    </div>
+    <div class="wf-annotation">3-column stat strip. Establishes credibility and differentiation immediately below the hero. No icons necessary — numbers do the work.</div>
+  </div>
+
+  <!-- OUR STORY -->
+  <div class="wf-section">
+    <div class="wf-section-tag">04 — Our Story</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center">
+      <div>
+        <div class="wf-img" style="height:240px">
+          <span>Founders Photo<br>(to be provided)</span>
+        </div>
+        <div class="wf-annotation">Photo of Andrea + husband — warm, candid setting. Authentic, not corporate headshots.</div>
+      </div>
+      <div>
+        <div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px">Section Header</div>
+        <h4 style="font-size:17px;margin-bottom:12px">Our Story</h4>
+        <p class="wf-body">We are a husband and wife team, both U.S. Army veterans and both living with service-connected disabilities. Our time in uniform shaped everything about who we are — and so did what came after.</p>
+        <p class="wf-body">Like many veterans, we know firsthand what it feels like to be chewed up, spit out, and forgotten the moment you are no longer on active duty. That feeling should belong to no one.</p>
+        <p class="wf-body">That is why we created Spoonwell — a home where veterans are truly seen, respected, and cared for by people who understand the culture, the sacrifices, and the challenges that come with life after service.</p>
+        <p class="wf-body" style="font-style:italic;color:#666;border-left:3px solid #bbb;padding-left:12px;margin-top:12px">"At Spoonwell, we are not just caregivers. We are veterans caring for veterans."</p>
+        <div class="wf-annotation">Pull quote as visual anchor. Keep copy personal and first-person throughout.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CORE VALUES -->
+  <div class="wf-section">
+    <div class="wf-section-tag">05 — About the Home / Core Values</div>
+    <div style="text-align:center;margin-bottom:20px">
+      <div style="font-size:9px;color:#aaa;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">Section Header</div>
+      <h4 style="font-size:17px">A Home Built Around What Matters</h4>
+      <p class="wf-body" style="max-width:520px;margin:8px auto 0">Small, intimate assisted living — 6 residents maximum. Located less than 10 minutes from Fort Benning, Georgia. Real care cannot happen in a crowd.</p>
+    </div>
+    <div class="wf-grid3">
+      <div class="wf-card" style="text-align:center">
+        <div class="wf-img" style="height:64px;width:64px;margin:0 auto 12px;border-radius:50%"><span style="font-size:9px">Icon</span></div>
+        <h4>Community</h4>
+        <p class="wf-body">With only 6 residents, Spoonwell feels like a household — not a facility. Residents eat together, spend time together, and look out for one another. The way it works in the military.</p>
+      </div>
+      <div class="wf-card" style="text-align:center">
+        <div class="wf-img" style="height:64px;width:64px;margin:0 auto 12px;border-radius:50%"><span style="font-size:9px">Icon</span></div>
+        <h4>Fresh Food &amp; Gardening</h4>
+        <p class="wf-body">We grow food on-site and prepare meals using fresh, wholesome ingredients. Residents who are able are welcome to participate in the garden — a therapeutic, grounding activity.</p>
+      </div>
+      <div class="wf-card" style="text-align:center">
+        <div class="wf-img" style="height:64px;width:64px;margin:0 auto 12px;border-radius:50%"><span style="font-size:9px">Icon</span></div>
+        <h4>Veteran-Centered Care</h4>
+        <p class="wf-body">We speak the language. We understand the culture. We do not require residents to explain their service or their struggles. Everything we do is shaped by our own experience as disabled veterans.</p>
+      </div>
+    </div>
+    <div class="wf-annotation">Icons: recommend simple line icons. Suggested: two figures (community), a leaf/plant (garden), a shield/star (veteran). Alternatively, use small photographs from the home in each card.</div>
+  </div>
+
+  <!-- PHOTO GALLERY -->
+  <div class="wf-section">
+    <div class="wf-section-tag">06 — Photo Gallery</div>
+    <div style="text-align:center;margin-bottom:16px">
+      <h4 style="font-size:16px">Life at Spoonwell</h4>
+    </div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin-bottom:12px">
+      <div class="wf-img" style="height:190px"><span>Feature Photo<br>(to be provided)</span></div>
+      <div class="wf-img" style="height:190px"><span>Garden<br>(to be provided)</span></div>
+      <div class="wf-img" style="height:190px"><span>Common Area<br>(to be provided)</span></div>
+    </div>
+    <div class="wf-grid3">
+      <div class="wf-img" style="height:130px"><span>Dining Area<br>(TBD)</span></div>
+      <div class="wf-img" style="height:130px"><span>Exterior<br>(TBD)</span></div>
+      <div class="wf-img" style="height:130px"><span>Bedroom<br>(TBD)</span></div>
+    </div>
+    <div class="wf-annotation">Layout: 1 large feature image + 2 smaller in top row; 3-column grid below. All photos to be provided at a later date. Recommend lightbox interaction on click. 6 photos total minimum.</div>
+  </div>
+
+  <!-- WAITLIST FORM -->
+  <div class="wf-section" id="waitlist">
+    <div class="wf-section-tag">07 — Waitlist / Interest Form</div>
+    <div style="text-align:center;margin-bottom:22px">
+      <h4 style="font-size:17px">Join the Waitlist</h4>
+      <p class="wf-body" style="max-width:500px;margin:8px auto 0">We serve a maximum of 6 residents. Space is limited. Complete the form below and we'll be in touch personally within 2–3 business days.</p>
+      <div class="wf-annotation" style="display:inline-block;margin-top:10px;text-align:left">Note to prospective residents: Proof of military service (e.g. DD-214) will be required prior to move-in. It is not required at this stage of inquiry.</div>
+    </div>
+
+    <div class="wf-grid2" style="gap:16px">
+      <div>
+        <div class="wf-label">Full Name (Prospective Resident) *</div>
+        <div class="wf-field">First and last name</div>
+      </div>
+      <div>
+        <div class="wf-label">Email Address *</div>
+        <div class="wf-field">email@example.com</div>
+      </div>
+      <div>
+        <div class="wf-label">Phone Number *</div>
+        <div class="wf-field">Best number to reach you</div>
+      </div>
+      <div>
+        <div class="wf-label">Relationship to Resident *</div>
+        <div class="wf-select"><span>Select one…</span></div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <span class="chip">Myself</span>
+          <span class="chip">Family Member</span>
+          <span class="chip">Caregiver / Advocate</span>
+          <span class="chip">Other</span>
+        </div>
+      </div>
+      <div>
+        <div class="wf-label">Branch of Service</div>
+        <div class="wf-select"><span>Select branch…</span></div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <span class="chip">Army</span>
+          <span class="chip">Navy</span>
+          <span class="chip">Air Force</span>
+          <span class="chip">Marines</span>
+          <span class="chip">Coast Guard</span>
+          <span class="chip">Space Force</span>
+        </div>
+      </div>
+      <div>
+        <div class="wf-label">Approximate Years of Service</div>
+        <div class="wf-field">e.g. 2005–2012</div>
+      </div>
+      <div style="grid-column:1/-1">
+        <div class="wf-label">Type of Care Needed *</div>
+        <div class="wf-textarea">Brief description — e.g. memory care, mobility assistance, medication management, companionship, daily living support…</div>
+      </div>
+      <div>
+        <div class="wf-label">Anticipated Timeline for Placement *</div>
+        <div class="wf-select"><span>Select timeline…</span></div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <span class="chip">Immediately</span>
+          <span class="chip">Within 3 months</span>
+          <span class="chip">Within 6 months</span>
+          <span class="chip">Planning Ahead</span>
+        </div>
+      </div>
+      <div>
+        <div class="wf-label">How Did You Hear About Spoonwell?</div>
+        <div class="wf-select"><span>Select one…</span></div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap">
+          <span class="chip">Referral</span>
+          <span class="chip">Google / Search</span>
+          <span class="chip">Social Media</span>
+          <span class="chip">VA / Medical Provider</span>
+          <span class="chip">Fort Benning</span>
+          <span class="chip">Other</span>
+        </div>
+      </div>
+      <div style="grid-column:1/-1">
+        <div class="wf-label">Additional Notes</div>
+        <div class="wf-textarea">Anything else you'd like us to know about the prospective resident or your situation…</div>
+      </div>
+    </div>
+
+    <div style="margin-top:20px;padding:14px;border:1.5px dashed #ccc;border-radius:4px;background:#fffbe6">
+      <div style="font-size:11px;color:#888;font-weight:700;margin-bottom:6px">Important Notice (displayed inline on form)</div>
+      <p style="font-size:11px;color:#888;line-height:1.7">Proof of military service (e.g. DD-214 or equivalent documentation) will be required before move-in. You do not need to submit this now — we will request it when the time comes. Thank you for your service.</p>
+    </div>
+
+    <div style="margin-top:20px;text-align:center">
+      <div class="wf-btn" style="padding:14px 48px;font-size:13px">Submit Interest Form</div>
+      <p style="font-size:11px;color:#aaa;margin-top:10px">We respond personally within 2–3 business days. · admin@spoonwellliving.com</p>
+    </div>
+
+    <div class="wf-annotation">Form submits to admin@spoonwellliving.com. Recommend adding an auto-responder confirmation email. Fields marked * are required. Branch of service and years of service optional if inquiry is from family member (not veteran directly).</div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="wf-section">
+    <div class="wf-section-tag">08 — Contact / Closing Section</div>
+    <div class="wf-grid2" style="align-items:center">
+      <div>
+        <h4 style="font-size:16px;margin-bottom:12px">Have Questions?</h4>
+        <p class="wf-body">Reach us directly — we are veterans, not a call center. We respond personally to every inquiry.</p>
+        <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">
+          <div style="font-size:12px;color:#666">Email: admin@spoonwellliving.com</div>
+          <div style="font-size:12px;color:#666">Website: www.spoonwellliving.com</div>
+          <div style="font-size:12px;color:#666">Location: Near Fort Benning, Georgia</div>
+        </div>
+      </div>
+      <div class="wf-img" style="height:170px">
+        <span>Map / Exterior Photo Placeholder<br>(to be provided)</span>
+      </div>
+    </div>
+    <div class="wf-annotation">Exact address TBD. If not disclosing full address publicly, show general Fort Benning area map. Consider adding phone number once available.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wf-section">
+    <div class="wf-section-tag">09 — Footer</div>
+    <div class="wf-grid3" style="margin-bottom:16px">
+      <div>
+        <div class="wf-logo" style="font-size:12px;padding:6px 12px;margin-bottom:10px">SPOONWELL LIVING</div>
+        <p class="wf-body">Veteran-owned and operated. A home where those who served are truly seen, respected, and cared for.</p>
+      </div>
+      <div>
+        <div class="wf-label" style="margin-bottom:8px">Quick Links</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:11px;color:#888">Our Story</div>
+          <div style="font-size:11px;color:#888">The Home</div>
+          <div style="font-size:11px;color:#888">Care Services</div>
+          <div style="font-size:11px;color:#888">Join Waitlist</div>
+          <div style="font-size:11px;color:#888">Contact</div>
+        </div>
+      </div>
+      <div>
+        <div class="wf-label" style="margin-bottom:8px">Contact</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px">admin@spoonwellliving.com</div>
+        <div style="font-size:11px;color:#888;margin-bottom:4px">www.spoonwellliving.com</div>
+        <div style="font-size:11px;color:#888;margin-bottom:10px">Near Fort Benning, Georgia</div>
+        <div style="display:flex;gap:8px">
+          <div style="width:28px;height:28px;border:1.5px solid #ccc;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa">FB</div>
+          <div style="width:28px;height:28px;border:1.5px solid #ccc;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa">IG</div>
+        </div>
+      </div>
+    </div>
+    <div class="wf-divider"></div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="font-size:10px;color:#aaa">© 2025 Spoonwell Living. All rights reserved.</div>
+      <div style="display:flex;gap:14px">
+        <div style="font-size:10px;color:#aaa">Privacy Policy</div>
+        <div style="font-size:10px;color:#aaa">Terms of Use</div>
+        <div style="font-size:10px;color:#aaa">Accessibility</div>
+      </div>
+    </div>
+    <div class="wf-annotation">Social: Facebook + Instagram recommended. Add LinkedIn if desired. Privacy Policy page will be needed before public launch.</div>
+  </div>
+
+  <div style="text-align:center;padding:24px 0 12px;font-size:10px;color:#bbb;letter-spacing:0.06em">
+    SPOONWELL LIVING · WIREFRAME v1.0 · admin@spoonwellliving.com · www.spoonwellliving.com
+  </div>
+
+</div>
+</body>
+</html>
